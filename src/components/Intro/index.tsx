@@ -9,7 +9,7 @@ import {
 import imageCoffeeHome from '../../assets/coffee-Home.svg'
 
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
-import { OptionItems } from '../OptionItem'
+import { OptionIntroItems } from '../OptionIntroItem'
 
 export function Intro() {
   return (
@@ -26,26 +26,29 @@ export function Intro() {
 
           <OptionContainer>
             <OptionWrapper>
-              <OptionItems text="Compra simples e segura" color="yellow">
+              <OptionIntroItems text="Compra simples e segura" color="yellow">
                 <ShoppingCart weight="fill" />
-              </OptionItems>
-              <OptionItems
+              </OptionIntroItems>
+              <OptionIntroItems
                 text="Entrega rápida e rastreada"
                 color="yellowLight"
               >
                 <Timer weight="fill" />
-              </OptionItems>
+              </OptionIntroItems>
             </OptionWrapper>
             <OptionWrapper>
-              <OptionItems text="Embalagem mantém o café intacto" color="grey">
+              <OptionIntroItems
+                text="Embalagem mantém o café intacto"
+                color="grey"
+              >
                 <Package weight="fill" />
-              </OptionItems>
-              <OptionItems
+              </OptionIntroItems>
+              <OptionIntroItems
                 text="O café chega fresquinho até você"
                 color="purple"
               >
                 <Coffee weight="fill" />
-              </OptionItems>
+              </OptionIntroItems>
             </OptionWrapper>
           </OptionContainer>
         </div>

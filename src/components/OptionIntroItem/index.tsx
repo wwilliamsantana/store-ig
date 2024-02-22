@@ -7,7 +7,7 @@ interface OptionItemsProps {
   color: 'yellow' | 'grey' | 'yellowLight' | 'purple'
 }
 
-export function OptionItems({ children, text, color }: OptionItemsProps) {
+export function OptionIntroItems({ children, text, color }: OptionItemsProps) {
   return (
     <OptionItem color={color}>
       <div>{children}</div>

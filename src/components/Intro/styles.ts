@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
   height: 34rem;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-image: url(${backgroundBlur});
 
   display: grid;
