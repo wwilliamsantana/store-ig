@@ -45,6 +45,8 @@ export const ButtonCard = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  position: relative;
 
   border-radius: 6px;
   padding: 0.5rem;
@@ -55,5 +57,24 @@ export const ButtonCard = styled.button`
     width: 1.375rem;
     height: 1.375rem;
     color: ${(props) => props.theme.yellowDark};
+  }
+
+  span {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    display: grid;
+    place-items: center;
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+    border-radius: 100%;
+    background-color: ${(props) => props.theme.yellowDark};
+    color: ${(props) => props.theme.white};
+    font-size: 0.75rem;
+    line-height: 130%;
+    font-weight: bold;
   }
 `

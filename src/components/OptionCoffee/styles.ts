@@ -103,6 +103,7 @@ export const Qtd = styled.div`
     border: 0;
     color: ${(props) => props.theme.purple};
     cursor: pointer;
+    outline: none;
   }
 `
 
@@ -116,4 +117,10 @@ export const AddCart = styled.button`
 
   display: grid;
   place-items: center;
+
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.purple};
+  }
 `

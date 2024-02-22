@@ -17,6 +17,7 @@ export function Header() {
         </div>
         <ButtonCard>
           <ShoppingCart weight="fill" />
+          <span>2</span>
         </ButtonCard>
       </LocationButtonCardContainer>
     </HeaderContainer>
