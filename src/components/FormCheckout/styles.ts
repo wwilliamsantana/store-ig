@@ -53,12 +53,16 @@ export const Inputs = styled.div`
     background-color: ${(props) => props.theme.baseInput};
     padding: 0.75rem;
     border-radius: 4px;
-    border: none;
+    border: 1px solid transparent;
     font-size: 0.875rem;
 
     &::placeholder {
       color: ${(props) => props.theme.baseLabel};
       font-size: 0.875rem;
+    }
+
+    &:hover {
+      border-color: ${(props) => props.theme.yellowDark};
     }
   }
 
@@ -151,7 +155,7 @@ export const Item = styled(RadioGroup.Item)`
 
   &[data-state='checked'] {
     background-color: ${(props) => props.theme.purpleLight};
-    border: 1px solid ${(props) => props.theme.purple};
+    border-color: ${(props) => props.theme.purple};
   }
 
   &:hover {

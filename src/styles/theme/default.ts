@@ -18,4 +18,6 @@ export const defaultTheme = {
 
   backgorund: '#fafafa',
   white: '#ffffff',
+
+  linearBc: 'linear-gradient(102.89deg, #dbac2c 2.61%, #8047f8 98.76%);',
 }

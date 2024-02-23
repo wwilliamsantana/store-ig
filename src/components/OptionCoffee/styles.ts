@@ -95,15 +95,20 @@ export const Qtd = styled.div`
 
   background-color: ${(props) => props.theme.baseButton};
 
-  & > button {
+  button.qtdButton {
     display: flex;
     align-items: center;
     gap: 0.25rem;
     font-size: 0.875rem;
     border: 0;
     color: ${(props) => props.theme.purple};
+    background-color: transparent;
     cursor: pointer;
     outline: none;
+
+    &:hover {
+      color: ${(props) => props.theme.purpleDark};
+    }
   }
 `
 

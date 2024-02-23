@@ -10,3 +10,5 @@ export function Checkout() {
     </CheckoutContainer>
   )
 }
+
+// Tranforme CheckoutContainer em form, adicionando o provider do useForm , é teriamos acesso as funções em ambos componentes

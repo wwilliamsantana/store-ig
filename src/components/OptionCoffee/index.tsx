@@ -28,11 +28,11 @@ export function OptionCoffee() {
         </span>
         <Action>
           <Qtd>
-            <button>
+            <button className="qtdButton">
               <Minus />
             </button>
             <span>1</span>
-            <button>
+            <button className="qtdButton">
               <Plus />
             </button>
           </Qtd>
