@@ -1,0 +1,58 @@
+{
+  "coffees": [
+    {
+      "id": 1,
+      "title": "Expresso Tradicional",
+      "subtitle": "O tradicional café feito com água quente e grãos moídos",
+      "tags": [
+        "tradicional"
+      ],
+      "value": 9.90,
+      "image": "../../../public/Coffee1.svg"
+    },
+    {
+      "id": 2,
+      "title": "Late",
+      "subtitle": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+      "tags": [
+        "tradicional",
+        "com leite"
+      ],
+      "value": 12.90,
+      "image": "../../../public/Coffee2.svg"
+    },
+    {
+      "id": 3,
+      "title": "Cubano",
+      "subtitle": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+      "tags": [
+        "especial",
+        "alcoolico",
+        "gelado"
+      ],
+      "value": 14.90,
+      "image": "../../../public/Coffee3.svg"
+    },
+    {
+      "id": 4,
+      "title": "Mocaccino",
+      "subtitle": "Café expresso com calda de chocolate, pouco leite e espuma",
+      "tags": [
+        "tradicional",
+        "com leite"
+      ],
+      "value": 12.90,
+      "image": "../../../public/Coffee4.svg"
+    },
+    {
+      "id": 5,
+      "title": "Expresso Cremoso",
+      "subtitle": "Café expresso tradicional com espuma cremosa",
+      "tags": [
+        "tradicional"
+      ],
+      "value": 9.90,
+      "image": "../../../public/Coffee5.svg"
+    }
+  ]
+}

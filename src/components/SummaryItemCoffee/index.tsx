@@ -1,6 +1,6 @@
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
 import { ItemCoffee, ItemContainer, ItemContent, Qtd } from './styles'
-import coffee1 from '../../assets/Coffee1.svg'
+import coffee1 from '../../../public/Coffee1.svg'
 
 export function SummaryItemCoffee() {
   return (
