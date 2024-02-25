@@ -14,7 +14,7 @@ import { CoffeeContext } from '../../context/CoffeeContext'
 
 interface OptionCoffeeProps {
   coffee: {
-    id: string
+    id: number
     title: string
     subtitle: string
     tags: string[]
@@ -26,11 +26,6 @@ interface OptionCoffeeProps {
 export function OptionCoffee({ coffee }: OptionCoffeeProps) {
   const [qtdCoffee, setQtdCoffee] = useState<number>(0)
   const { addCart } = useContext(CoffeeContext)
-
-  const formatPrice = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(coffee.value)
 
   function addQtd() {
     setQtdCoffee((state) => state + 1)
@@ -48,12 +43,19 @@ export function OptionCoffee({ coffee }: OptionCoffeeProps) {
         title: coffee.title,
         qtd: qtdCoffee,
         value: coffee.value,
+        image: coffee.image,
+        id: coffee.id,
       }
-      console.log(data)
+
       setQtdCoffee(0)
       addCart(data)
     }
   }
+
+  const formatPrice = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(coffee.value)
 
   return (
     <OptionCoffeeContainer>

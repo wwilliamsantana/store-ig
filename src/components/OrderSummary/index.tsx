@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { SummaryItemCoffee } from '../SummaryItemCoffee'
 import {
   SummaryListCoffee,
@@ -6,15 +7,19 @@ import {
   SummaryMoney,
   ButtonFinished,
 } from './styles'
+import { CoffeeContext } from '../../context/CoffeeContext'
 
 export function OrderSummary() {
+  const { cart } = useContext(CoffeeContext)
+
   return (
     <SummaryContainer>
       <h2>Cafés selecionados</h2>
       <SummaryContent>
         <SummaryListCoffee>
-          <SummaryItemCoffee />
-          <SummaryItemCoffee />
+          {cart.map((item) => {
+            return <SummaryItemCoffee key={item.id} data={item} />
+          })}
         </SummaryListCoffee>
 
         <SummaryMoney>
