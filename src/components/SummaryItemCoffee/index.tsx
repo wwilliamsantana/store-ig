@@ -1,6 +1,8 @@
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
 import { ItemCoffee, ItemContainer, ItemContent, Qtd } from './styles'
-import coffee1 from '../../../public/Coffee1.svg'
+
+// eslint-disable-next-line import/no-absolute-path
+import coffee1 from '/Coffee1.svg'
 
 export function SummaryItemCoffee() {
   return (

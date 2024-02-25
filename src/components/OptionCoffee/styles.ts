@@ -112,7 +112,7 @@ export const Qtd = styled.div`
   }
 `
 
-export const AddCart = styled.button`
+export const AddCartCoffee = styled.button`
   cursor: pointer;
   background-color: ${(props) => props.theme.purpleDark};
   color: ${(props) => props.theme.white};

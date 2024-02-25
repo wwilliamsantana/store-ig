@@ -1,7 +1,7 @@
 import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
 import {
   Action,
-  AddCart,
+  AddCartCoffee,
   InfoContent,
   OptionCoffeeContainer,
   Qtd,
@@ -9,7 +9,8 @@ import {
   ValuesInfoContainer,
 } from './styles'
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CoffeeContext } from '../../context/CoffeeContext'
 
 interface OptionCoffeeProps {
   coffee: {
@@ -24,6 +25,7 @@ interface OptionCoffeeProps {
 
 export function OptionCoffee({ coffee }: OptionCoffeeProps) {
   const [qtdCoffee, setQtdCoffee] = useState<number>(0)
+  const { addCart } = useContext(CoffeeContext)
 
   const formatPrice = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -37,6 +39,19 @@ export function OptionCoffee({ coffee }: OptionCoffeeProps) {
   function decreaseQtd() {
     if (qtdCoffee > 0) {
       setQtdCoffee((state) => state - 1)
+    }
+  }
+
+  function sendRequestCart() {
+    if (qtdCoffee > 0) {
+      const data = {
+        title: coffee.title,
+        qtd: qtdCoffee,
+        value: coffee.value,
+      }
+      console.log(data)
+      setQtdCoffee(0)
+      addCart(data)
     }
   }
 
@@ -68,9 +83,9 @@ export function OptionCoffee({ coffee }: OptionCoffeeProps) {
               <Plus />
             </button>
           </Qtd>
-          <AddCart>
+          <AddCartCoffee onClick={sendRequestCart}>
             <ShoppingCart weight="fill" />
-          </AddCart>
+          </AddCartCoffee>
         </Action>
       </ValuesInfoContainer>
     </OptionCoffeeContainer>

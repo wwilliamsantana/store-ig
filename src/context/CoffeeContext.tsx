@@ -10,18 +10,27 @@ interface CoffeeProps {
   image: string
 }
 
-interface CardContextProps {
-  coffees: CoffeeProps[]
+interface CartProps {
+  title: string
+  qtd: number
+  value: number
 }
 
-export const CardContext = createContext({} as CardContextProps)
+interface CardContextProps {
+  coffees: CoffeeProps[]
+  addCart: (data: CartProps) => void
+  cart: CartProps[]
+}
+
+export const CoffeeContext = createContext({} as CardContextProps)
 
 interface CardProviderProps {
   children: ReactNode
 }
 
-export function CardContextProvider({ children }: CardProviderProps) {
+export function CoffeeContextProvider({ children }: CardProviderProps) {
   const [coffees, setCoffees] = useState<CoffeeProps[]>([])
+  const [cart, setCart] = useState<CartProps[]>([])
 
   async function loadedCoffee() {
     const response = await api.get('/coffees')
@@ -29,11 +38,17 @@ export function CardContextProvider({ children }: CardProviderProps) {
     setCoffees(response.data)
   }
 
+  function addCart(data: CartProps) {
+    setCart((state) => [...state, data])
+  }
+
   useEffect(() => {
     loadedCoffee()
   }, [])
 
   return (
-    <CardContext.Provider value={{ coffees }}>{children}</CardContext.Provider>
+    <CoffeeContext.Provider value={{ coffees, addCart, cart }}>
+      {children}
+    </CoffeeContext.Provider>
   )
 }

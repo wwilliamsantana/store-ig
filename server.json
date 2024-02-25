@@ -8,7 +8,7 @@
         "tradicional"
       ],
       "value": 9.90,
-      "image": "../../../public/Coffee1.svg"
+      "image": "/Coffee1.svg"
     },
     {
       "id": 2,
@@ -19,7 +19,7 @@
         "com leite"
       ],
       "value": 12.90,
-      "image": "../../../public/Coffee2.svg"
+      "image": "/Coffee2.svg"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
         "gelado"
       ],
       "value": 14.90,
-      "image": "../../../public/Coffee3.svg"
+      "image": "/Coffee3.svg"
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
         "com leite"
       ],
       "value": 12.90,
-      "image": "../../../public/Coffee4.svg"
+      "image": "/Coffee4.svg"
     },
     {
       "id": 5,
@@ -52,7 +52,7 @@
         "tradicional"
       ],
       "value": 9.90,
-      "image": "../../../public/Coffee5.svg"
+      "image": "/Coffee5.svg"
     }
   ]
 }
