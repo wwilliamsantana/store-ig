@@ -12,6 +12,16 @@ import { CoffeeContext } from '../../context/CoffeeContext'
 export function OrderSummary() {
   const { cart } = useContext(CoffeeContext)
 
+  const amount = cart.reduce(
+    (acc, current) => acc + current.value * current.qtd,
+    0,
+  )
+
+  const formatAmout = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
   return (
     <SummaryContainer>
       <h2>Cafés selecionados</h2>
@@ -25,7 +35,7 @@ export function OrderSummary() {
         <SummaryMoney>
           <div>
             <p>Total de itens</p>
-            <span>R$ 29,70</span>
+            <span>{formatAmout.format(amount)}</span>
           </div>
           <div>
             <p>Entrega</p>
@@ -33,11 +43,13 @@ export function OrderSummary() {
           </div>
           <div>
             <p>Total</p>
-            <span>R$ 39,70</span>
+            <span>
+              {amount > 0 ? formatAmout.format(amount + 10) : 'R$ 0,00'}
+            </span>
           </div>
         </SummaryMoney>
 
-        <ButtonFinished>Confirmar pedido</ButtonFinished>
+        <ButtonFinished type="submit">Confirmar pedido</ButtonFinished>
       </SummaryContent>
     </SummaryContainer>
   )

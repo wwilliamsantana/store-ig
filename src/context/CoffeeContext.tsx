@@ -41,21 +41,17 @@ export function CoffeeContextProvider({ children }: CardProviderProps) {
   const [coffees, setCoffees] = useState<CoffeeProps[]>([])
   const [cart, setCart] = useState<CartProps[]>([])
 
-  async function loadedCoffee() {
-    const response = await api.get('/coffees')
-
-    setCoffees(response.data)
-  }
-
   function updateCart(data: UpdateCartProps) {
-    const newData = cart.map((item) => {
-      if (item.id === data.id) {
-        item.qtd = data.qtd
-      }
-      return item
-    })
-
-    setCart(newData)
+    if (data.qtd > 0) {
+      const newData = cart.map((item) => {
+        if (item.id === data.id) {
+          item.qtd = data.qtd
+        }
+        return item
+      })
+      return setCart(newData)
+    }
+    removeCart(data.id)
   }
 
   function removeCart(id: number) {
@@ -66,6 +62,12 @@ export function CoffeeContextProvider({ children }: CardProviderProps) {
 
   function addCart(data: CartProps) {
     setCart((state) => [...state, data])
+  }
+
+  async function loadedCoffee() {
+    const response = await api.get('/coffees')
+
+    setCoffees(response.data)
   }
 
   useEffect(() => {

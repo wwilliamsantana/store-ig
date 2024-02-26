@@ -11,7 +11,7 @@ export const FormContainer = styled.div`
   }
 `
 
-export const FormContent = styled.form`
+export const FormContent = styled.div`
   margin-top: 1rem;
 `
 
