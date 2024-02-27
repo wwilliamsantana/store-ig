@@ -39,16 +39,14 @@ export function OptionCoffee({ coffee }: OptionCoffeeProps) {
 
   function sendRequestCart() {
     if (qtdCoffee > 0) {
-      const data = {
+      addCart({
         title: coffee.title,
         qtd: qtdCoffee,
         value: coffee.value,
         image: coffee.image,
         id: coffee.id,
-      }
-
+      })
       setQtdCoffee(0)
-      addCart(data)
     }
   }
 

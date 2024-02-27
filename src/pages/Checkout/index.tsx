@@ -1,23 +1,40 @@
 import { FormProvider, useForm } from 'react-hook-form'
-import { FormCheckout } from '../../components/FormCheckout'
+import {
+  FormComponent,
+  formSchema,
+  FormSchemaProps,
+} from '../../components/FormComponent'
 import { OrderSummary } from '../../components/OrderSummary'
 import { CheckoutContainer } from './styles'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../context/CoffeeContext'
 
 export function Checkout() {
-  const methodsForm = useForm()
+  const formMethods = useForm<FormSchemaProps>({
+    resolver: zodResolver(formSchema),
+  })
 
-  function submitForm(data: any) {
-    console.log('Test')
+  const { addOrder } = useContext(CoffeeContext)
+
+  function submitForm(data: FormSchemaProps) {
+    const { rua, numero, cidade, uf, methodPayment } = data
+
+    addOrder({
+      cidade,
+      methodPayment,
+      numero,
+      rua,
+      uf,
+    })
   }
 
   return (
-    <FormProvider {...methodsForm}>
-      <CheckoutContainer onSubmit={methodsForm.handleSubmit(submitForm)}>
-        <FormCheckout />
+    <FormProvider {...formMethods}>
+      <CheckoutContainer onSubmit={formMethods.handleSubmit(submitForm)}>
+        <FormComponent />
         <OrderSummary />
       </CheckoutContainer>
     </FormProvider>
   )
 }
-
-// Tranforme CheckoutContainer em form, adicionando o provider do useForm , é teriamos acesso as funções em ambos componentes

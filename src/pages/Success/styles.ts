@@ -65,6 +65,7 @@ export const ItemDelivery = styled.div<ItemDeliveryProps>`
     border-radius: 9999px;
     display: grid;
     place-items: center;
+    text-transform: capitalize;
 
     svg {
       color: ${(props) => props.theme.white};

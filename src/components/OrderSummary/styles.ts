@@ -15,6 +15,14 @@ export const SummaryContent = styled.div`
   border-radius: 6px;
   padding: 2.5rem;
   margin-top: 1rem;
+
+  .order {
+    display: grid;
+    color: ${(props) => props.theme.baseSubtitle};
+    place-items: center;
+    font-family: 'Baloo 2 ', sans-serif;
+    letter-spacing: 4ox;
+  }
 `
 
 export const SummaryListCoffee = styled.div`
@@ -45,6 +53,7 @@ export const SummaryMoney = styled.div`
     font-weight: 900;
   }
 `
+
 export const ButtonFinished = styled.button`
   width: 100%;
   margin-top: 1.5rem;
@@ -64,5 +73,11 @@ export const ButtonFinished = styled.button`
   transition: all 0.2s;
   &:hover {
     background-color: ${(props) => props.theme.yellowDark};
+  }
+
+  &:disabled {
+    background-color: red;
+    cursor: not-allowed;
+    opacity: 0.7;
   }
 `

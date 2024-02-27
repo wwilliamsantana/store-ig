@@ -8,9 +8,13 @@ import {
   ButtonFinished,
 } from './styles'
 import { CoffeeContext } from '../../context/CoffeeContext'
+import { useFormContext } from 'react-hook-form'
 
 export function OrderSummary() {
   const { cart } = useContext(CoffeeContext)
+  const {
+    formState: { isValid },
+  } = useFormContext()
 
   const amount = cart.reduce(
     (acc, current) => acc + current.value * current.qtd,
@@ -32,24 +36,33 @@ export function OrderSummary() {
           })}
         </SummaryListCoffee>
 
-        <SummaryMoney>
-          <div>
-            <p>Total de itens</p>
-            <span>{formatAmout.format(amount)}</span>
-          </div>
-          <div>
-            <p>Entrega</p>
-            <span>R$ 10,00</span>
-          </div>
-          <div>
-            <p>Total</p>
-            <span>
-              {amount > 0 ? formatAmout.format(amount + 10) : 'R$ 0,00'}
-            </span>
-          </div>
-        </SummaryMoney>
+        {cart.length > 0 ? (
+          <SummaryMoney>
+            <div>
+              <p>Total de itens</p>
+              <span>{formatAmout.format(amount)}</span>
+            </div>
+            <div>
+              <p>Entrega</p>
+              <span>R$ 10,00</span>
+            </div>
+            <div>
+              <p>Total</p>
+              <span>
+                {amount > 0 ? formatAmout.format(amount + 10) : 'R$ 0,00'}
+              </span>
+            </div>
+          </SummaryMoney>
+        ) : (
+          <strong className="order">Carrinho vazio</strong>
+        )}
 
-        <ButtonFinished type="submit">Confirmar pedido</ButtonFinished>
+        <ButtonFinished
+          type="submit"
+          disabled={!(isValid && !(cart.length === 0))}
+        >
+          Confirmar pedido
+        </ButtonFinished>
       </SummaryContent>
     </SummaryContainer>
   )
